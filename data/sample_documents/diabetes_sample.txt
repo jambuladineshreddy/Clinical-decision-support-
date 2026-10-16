@@ -1,0 +1,139 @@
+DISCLAIMER: DEVELOPMENT SAMPLE DOCUMENT — NOT OFFICIAL MEDICAL GUIDELINES
+SOURCE TYPE: Development Sample Clinical Document
+DISEASE CONTEXT: Diabetes
+PURPOSE: Academic prototype development only. Not for clinical use.
+=========================================================================
+
+DIABETES — GENERAL EDUCATIONAL CLINICAL OVERVIEW
+=================================================
+
+1. GLUCOSE (FASTING PLASMA GLUCOSE)
+------------------------------------
+Fasting plasma glucose (FPG) is one of the primary indicators used to assess
+glycemic status. General educational reference ranges commonly discussed in
+diabetes literature include:
+
+- Normal fasting glucose: below 100 mg/dL
+- Impaired fasting glucose (pre-diabetes range): 100–125 mg/dL
+- Diabetes diagnostic threshold (when confirmed): 126 mg/dL or higher on two
+  separate tests
+
+Elevated fasting glucose reflects the body's reduced ability to maintain normal
+blood sugar levels, which may be associated with impaired insulin secretion,
+insulin resistance, or both. In the context of a machine learning model for
+diabetes prediction, glucose level is typically one of the strongest numeric
+predictors because of its direct relationship with glycemic dysregulation.
+
+Clinical note: A single elevated glucose reading is not sufficient for a
+confirmed diabetes diagnosis. Repeated testing and clinical evaluation are
+required.
+
+2. BODY MASS INDEX (BMI)
+------------------------
+BMI is a widely used anthropometric measure calculated as weight (kg) divided
+by height squared (m²). In diabetes-related literature, BMI is discussed in
+the context of metabolic risk:
+
+- Underweight: below 18.5
+- Normal weight: 18.5 – 24.9
+- Overweight: 25.0 – 29.9
+- Obesity class I: 30.0 – 34.9
+- Obesity class II: 35.0 – 39.9
+- Obesity class III: 40.0 and above
+
+Higher BMI values are associated with greater adipose tissue, which can
+contribute to insulin resistance — a condition in which the body's cells
+respond less effectively to insulin. Visceral adiposity in particular has been
+linked to increased metabolic risk in general educational literature.
+
+In a predictive model for diabetes, BMI is frequently among the top
+contributing features due to the association between obesity and impaired
+glucose regulation.
+
+3. AGE AS A RISK FACTOR
+------------------------
+Advancing age is a well-recognized factor in discussions of type 2 diabetes
+risk. As individuals age, physiological changes may affect insulin sensitivity
+and pancreatic beta-cell function. General educational literature frequently
+notes that the risk of type 2 diabetes increases in middle-aged and older
+adults.
+
+In machine learning models trained on clinical datasets, age often contributes
+positively to predictions of diabetes, particularly when combined with other
+metabolic risk indicators such as elevated BMI or glucose.
+
+4. BLOOD PRESSURE (DIASTOLIC)
+------------------------------
+Diastolic blood pressure (the lower number in a blood pressure reading)
+represents the pressure in the arteries when the heart is at rest between
+beats. Hypertension — elevated blood pressure — frequently co-occurs with type
+2 diabetes. Educational literature describes this relationship as part of the
+broader cardiometabolic syndrome.
+
+General reference ranges discussed in educational contexts:
+- Normal diastolic BP: below 80 mm Hg
+- Elevated / Stage 1 hypertension: 80–89 mm Hg
+- Stage 2 hypertension: 90 mm Hg and above
+
+In a diabetes prediction model, blood pressure may contribute as a correlated
+metabolic marker, though its individual contribution to the prediction may vary
+depending on the patient's overall clinical profile.
+
+5. INSULIN
+----------
+Insulin is a hormone produced by the pancreatic beta cells that regulates
+blood glucose by facilitating cellular uptake of glucose. In type 2 diabetes,
+early stages may be characterised by hyperinsulinemia (excess insulin production
+as a compensatory response to insulin resistance), while later stages may involve
+reduced insulin secretion.
+
+In fasting plasma measurements, insulin levels can reflect the degree of
+insulin resistance. In predictive models, elevated fasting insulin combined
+with elevated glucose may signal a higher probability of diabetes.
+
+6. DIABETES PEDIGREE FUNCTION
+------------------------------
+The Diabetes Pedigree Function (DPF) is a synthetic score developed to estimate
+the genetic influence of family history on diabetes risk. A higher DPF value
+suggests stronger familial predisposition. It is a feature specific to the
+Pima Indians Diabetes Dataset and related datasets.
+
+In predictive models, DPF captures hereditary risk that may not be reflected
+in metabolic measurements alone. It contributes to prediction by encoding
+genetic predisposition in numeric form.
+
+7. INSULIN RESISTANCE
+---------------------
+Insulin resistance is a physiological state in which target tissues respond
+sub-optimally to insulin signalling. It is considered a central mechanism in
+the development of type 2 diabetes. Educational literature describes insulin
+resistance as influenced by factors including adiposity, physical inactivity,
+chronic inflammation, and genetic predisposition.
+
+The HOMA-IR (Homeostatic Model Assessment of Insulin Resistance) is one
+commonly referenced metric in educational literature, calculated using fasting
+insulin and fasting glucose.
+
+8. GENERAL CLINICAL CONTEXT
+----------------------------
+Diabetes mellitus type 2 is a chronic metabolic condition characterised by
+hyperglycaemia resulting from impaired insulin secretion and/or insulin
+resistance. Educational literature identifies modifiable risk factors including
+physical inactivity, unhealthy diet, overweight, and obesity. Non-modifiable
+risk factors include genetics, age, and family history.
+
+Clinical evaluation for diabetes typically involves:
+- Fasting plasma glucose testing
+- HbA1c (glycated haemoglobin) measurement
+- Oral glucose tolerance test (OGTT) in some cases
+
+A machine learning model that predicts diabetes based on clinical features
+provides decision support only. It does not replace clinical evaluation,
+laboratory testing, or physician judgement.
+
+=========================================================================
+NOTE: This document is a development sample created for academic prototype
+testing. It does not represent official WHO or any other medical guidelines.
+No citations are implied or fabricated. Replace with verified clinical
+documents before any research or clinical deployment.
+=========================================================================

@@ -1,0 +1,162 @@
+{
+  "disease": "diabetes",
+  "model_name": "Random Forest",
+  "feature_names": [
+    "Age",
+    "Gender",
+    "BMI",
+    "BloodPressure",
+    "Insulin",
+    "Glucose",
+    "DiabetesPedigreeFunction"
+  ],
+  "target_column": "Outcome",
+  "label_map": {
+    "0": "Non-Diabetic",
+    "1": "Diabetic"
+  },
+  "cv_results": {
+    "Logistic Regression": {
+      "CV Accuracy": 0.8166666666666667,
+      "CV Precision": 0.7887974035768153,
+      "CV Recall": 0.7379217273954115,
+      "CV F1": 0.7614938790281256,
+      "CV ROC-AUC": 0.87908775032187,
+      "F1 Std": 0.026620025403830374,
+      "AUC Std": 0.019801430991660006
+    },
+    "Random Forest": {
+      "CV Accuracy": 0.9041666666666666,
+      "CV Precision": 0.8858063427800269,
+      "CV Recall": 0.8740890688259109,
+      "CV F1": 0.8785085667164282,
+      "CV ROC-AUC": 0.9390688259109311,
+      "F1 Std": 0.02395521577790581,
+      "AUC Std": 0.019715043892106817
+    },
+    "XGBoost": {
+      "CV Accuracy": 0.8895833333333332,
+      "CV Precision": 0.8703713469567129,
+      "CV Recall": 0.8534412955465587,
+      "CV F1": 0.8591635259751417,
+      "CV ROC-AUC": 0.9512704174228676,
+      "F1 Std": 0.028479802467153252,
+      "AUC Std": 0.012437570757981372
+    }
+  },
+  "holdout_test_metrics": {
+    "accuracy": 0.9166666666666666,
+    "balanced_accuracy": 0.90625,
+    "sensitivity": 0.8541666666666666,
+    "specificity": 0.9583333333333334,
+    "positive_predictive_value": 0.9318181818181818,
+    "negative_predictive_value": 0.9078947368421053,
+    "f1_score": 0.8913043478260869,
+    "roc_auc": 0.9502314814814814,
+    "pr_auc": 0.8901269411839112,
+    "brier_score": 0.08650833333333334,
+    "confusion_matrix": {
+      "true_negative": 69,
+      "false_positive": 3,
+      "false_negative": 7,
+      "true_positive": 41
+    }
+  },
+  "feature_statistics": {
+    "Age": {
+      "mean": 33.95625,
+      "std": 11.784254139141195,
+      "min": 21.0,
+      "max": 69.0,
+      "p25": 24.75,
+      "p75": 41.0
+    },
+    "Gender": {
+      "mean": 0.475,
+      "std": 0.49989560496806557,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p75": 1.0
+    },
+    "BMI": {
+      "mean": 31.9745,
+      "std": 6.152669478519043,
+      "min": 18.98,
+      "max": 47.9,
+      "p25": 27.6,
+      "p75": 36.025
+    },
+    "BloodPressure": {
+      "mean": 73.27083333333333,
+      "std": 10.943085982853015,
+      "min": 50.0,
+      "max": 110.0,
+      "p25": 66.0,
+      "p75": 80.0
+    },
+    "Insulin": {
+      "mean": 131.8125,
+      "std": 56.07036149708116,
+      "min": 18.0,
+      "max": 330.0,
+      "p25": 102.0,
+      "p75": 170.0
+    },
+    "Glucose": {
+      "mean": 122.55208333333333,
+      "std": 29.722330088341092,
+      "min": 71.0,
+      "max": 197.0,
+      "p25": 100.0,
+      "p75": 141.0
+    },
+    "DiabetesPedigreeFunction": {
+      "mean": 0.46903541666666665,
+      "std": 0.3167582285608302,
+      "min": 0.088,
+      "max": 1.893,
+      "p25": 0.23975,
+      "p75": 0.63175
+    }
+  },
+  "global_shap_importance": [
+    {
+      "feature": "Insulin",
+      "mean_abs_shap": 0.2416,
+      "rank": 1
+    },
+    {
+      "feature": "Glucose",
+      "mean_abs_shap": 0.0861,
+      "rank": 2
+    },
+    {
+      "feature": "Age",
+      "mean_abs_shap": 0.0689,
+      "rank": 3
+    },
+    {
+      "feature": "BMI",
+      "mean_abs_shap": 0.0546,
+      "rank": 4
+    },
+    {
+      "feature": "DiabetesPedigreeFunction",
+      "mean_abs_shap": 0.0285,
+      "rank": 5
+    },
+    {
+      "feature": "BloodPressure",
+      "mean_abs_shap": 0.0153,
+      "rank": 6
+    },
+    {
+      "feature": "Gender",
+      "mean_abs_shap": 0.005,
+      "rank": 7
+    }
+  ],
+  "model_path": "models/diabetes_model.pkl",
+  "train_sample_path": "models/diabetes_train_sample.pkl"
+}

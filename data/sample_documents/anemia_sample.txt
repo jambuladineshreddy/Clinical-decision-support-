@@ -1,0 +1,150 @@
+DISCLAIMER: DEVELOPMENT SAMPLE DOCUMENT — NOT OFFICIAL MEDICAL GUIDELINES
+SOURCE TYPE: Development Sample Clinical Document
+DISEASE CONTEXT: Anemia
+PURPOSE: Academic prototype development only. Not for clinical use.
+=========================================================================
+
+ANEMIA — GENERAL EDUCATIONAL CLINICAL OVERVIEW
+===============================================
+
+1. HEMOGLOBIN (Hb)
+-------------------
+Hemoglobin is the iron-containing protein in red blood cells responsible for
+oxygen transport. It is the primary diagnostic indicator of anemia. General
+educational reference ranges commonly cited in clinical literature include:
+
+Adults (approximate general education ranges):
+- Male: 13.5 – 17.5 g/dL (approximate)
+- Female: 12.0 – 15.5 g/dL (approximate)
+
+Anemia is generally described in educational literature as a hemoglobin level
+below the lower reference limit for the patient's sex and age. Severity
+classifications discussed in general clinical education:
+- Mild anemia: Hb 10.0 – lower reference limit
+- Moderate anemia: Hb 8.0 – 9.9 g/dL
+- Severe anemia: Hb below 8.0 g/dL
+- Very severe: Hb below 6.5 g/dL
+
+In machine learning models for anemia prediction, hemoglobin is typically the
+most important feature due to its direct definition of anemia. A model trained
+on hemoglobin alongside red cell indices (MCV, MCH, MCHC) can capture both
+the presence and type of anemia.
+
+2. MCV — MEAN CORPUSCULAR VOLUME
+----------------------------------
+MCV measures the average volume of a single red blood cell, expressed in
+femtolitres (fL). It is a key index for classifying anemia type:
+
+General educational reference range:
+- Normal MCV: approximately 80 – 100 fL
+
+Educational classification:
+- Microcytic anemia (MCV below 80 fL): associated with iron deficiency,
+  thalassemia, chronic disease, or sideroblastic anemia
+- Normocytic anemia (MCV 80–100 fL): associated with acute blood loss,
+  chronic disease, hemolysis, renal disease
+- Macrocytic anemia (MCV above 100 fL): associated with vitamin B12 or
+  folate deficiency, liver disease, hypothyroidism
+
+In a predictive model, MCV helps the model identify not just whether anemia
+is present, but the pattern of red cell changes associated with it.
+
+3. MCH — MEAN CORPUSCULAR HEMOGLOBIN
+--------------------------------------
+MCH is the average mass of hemoglobin per red blood cell, measured in
+picograms (pg). It reflects the amount of hemoglobin packed into an average
+red cell.
+
+General educational reference range:
+- Normal MCH: approximately 27 – 33 pg
+
+MCH tends to parallel MCV:
+- Low MCH (hypochromia): consistent with iron deficiency or thalassemia
+- Normal MCH: normochromic anemias
+- High MCH: macrocytic states
+
+In predictive models for anemia classification, MCH provides complementary
+information to MCV, reinforcing the red cell sizing signal. Low MCH in
+combination with low MCV and low Hb is frequently encountered in iron
+deficiency anemia patterns in educational datasets.
+
+4. MCHC — MEAN CORPUSCULAR HEMOGLOBIN CONCENTRATION
+-----------------------------------------------------
+MCHC measures the average concentration of hemoglobin within red blood cells,
+expressed in g/dL. It represents how densely packed hemoglobin is within the
+cell.
+
+General educational reference range:
+- Normal MCHC: approximately 32 – 36 g/dL
+
+- Low MCHC (hypochromia): seen in iron deficiency anemia, where cells contain
+  proportionally less hemoglobin
+- Normal MCHC: most normocytic and macrocytic anemias
+- High MCHC: associated with hereditary spherocytosis in educational literature
+
+In the context of machine learning, MCHC provides information about the
+hemoglobin density within cells, which can help distinguish between anemia
+types even when MCV and MCH are borderline.
+
+5. GENDER IN ANEMIA
+--------------------
+Sex is a clinically relevant demographic variable in anemia assessment because
+hemoglobin reference ranges differ by sex. Adult males generally have higher
+hemoglobin levels than adult females due to testosterone's erythropoietic
+effect. This means that the same hemoglobin value may be below normal for a
+male but within normal range for a female.
+
+In a predictive model that includes gender, the model can partially account
+for these sex-specific differences in interpreting hemoglobin levels.
+
+6. IRON DEFICIENCY ANEMIA
+--------------------------
+Iron deficiency anemia (IDA) is described in educational literature as the most
+common form of anemia worldwide. It develops when iron stores are depleted,
+leading to reduced hemoglobin synthesis. Educational descriptions of IDA include:
+
+- Low hemoglobin
+- Low MCV (microcytic)
+- Low MCH and MCHC (hypochromic)
+- Low serum ferritin (iron store marker, not included in this model)
+- Elevated TIBC (total iron-binding capacity) in some cases
+
+In a dataset that includes hemoglobin, MCV, MCH, and MCHC, iron deficiency
+patterns are typically identifiable from the combination of low values across
+all four indices.
+
+7. NON-IRON DEFICIENCY ANEMIA TYPES (EDUCATIONAL OVERVIEW)
+-----------------------------------------------------------
+- Vitamin B12 / Folate Deficiency Anemia: Macrocytic (high MCV), normal or
+  elevated MCHC, low hemoglobin. Caused by impaired DNA synthesis in red cell
+  precursors.
+
+- Anemia of Chronic Disease: Often normocytic, normochromic. Associated with
+  chronic inflammatory, infectious, or neoplastic conditions.
+
+- Thalassemia: Microcytic, may have normal or elevated red cell count.
+  Distinguished from IDA by different patterns of MCH and MCHC.
+
+- Hemolytic Anemia: Variable MCV/MCH/MCHC depending on type. Characterized
+  by increased red cell destruction.
+
+8. GENERAL CLINICAL CONTEXT
+----------------------------
+Anemia is a condition in which the hemoglobin concentration falls below the
+lower limit of normal for age and sex, resulting in reduced oxygen-carrying
+capacity of the blood. Educational literature describes common symptoms as
+fatigue, pallor, shortness of breath, and reduced exercise tolerance, though
+these are non-specific.
+
+A machine learning model trained on blood count indices (Hb, MCV, MCH, MCHC)
+and gender can provide probabilistic predictions regarding the likely presence
+of anemia. These predictions represent decision support and cannot substitute
+for full blood count laboratory results, clinical history, and physician
+assessment.
+
+=========================================================================
+NOTE: This document is a development sample created for academic prototype
+testing. It does not represent official WHO or any other medical guidelines.
+No citations are implied or fabricated. Replace with verified clinical
+documents before any research or clinical deployment.
+=========================================================================

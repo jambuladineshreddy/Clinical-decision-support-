@@ -1,0 +1,134 @@
+{
+  "disease": "anemia",
+  "model_name": "Random Forest",
+  "feature_names": [
+    "Gender",
+    "Hemoglobin",
+    "MCH",
+    "MCHC",
+    "MCV"
+  ],
+  "target_column": "Result",
+  "label_map": {
+    "0": "No Anemia",
+    "1": "Anemia"
+  },
+  "cv_results": {
+    "Logistic Regression": {
+      "CV Accuracy": 0.8979016925573846,
+      "CV Precision": 0.8740106460806876,
+      "CV Recall": 0.8982970297029702,
+      "CV F1": 0.8854014963328225,
+      "CV ROC-AUC": 0.9397866999298353,
+      "F1 Std": 0.018649539828388104,
+      "AUC Std": 0.022550027006337663
+    },
+    "Random Forest": {
+      "CV Accuracy": 0.9031996290285184,
+      "CV Precision": 0.8931425189718418,
+      "CV Recall": 0.8863960396039605,
+      "CV F1": 0.88889855274276,
+      "CV ROC-AUC": 0.9318678568644266,
+      "F1 Std": 0.03290348962169141,
+      "AUC Std": 0.02430790709495915
+    },
+    "XGBoost": {
+      "CV Accuracy": 0.8952817064688151,
+      "CV Precision": 0.8940601625829683,
+      "CV Recall": 0.8644158415841584,
+      "CV F1": 0.8783063773397226,
+      "CV ROC-AUC": 0.9410873158181958,
+      "F1 Std": 0.042195642896112814,
+      "AUC Std": 0.02103268870314834
+    }
+  },
+  "holdout_test_metrics": {
+    "accuracy": 0.8842105263157894,
+    "balanced_accuracy": 0.8830488170110812,
+    "sensitivity": 0.873015873015873,
+    "specificity": 0.8930817610062893,
+    "positive_predictive_value": 0.8661417322834646,
+    "negative_predictive_value": 0.8987341772151899,
+    "f1_score": 0.8695652173913043,
+    "roc_auc": 0.9389537785764203,
+    "pr_auc": 0.929334924217836,
+    "brier_score": 0.0874190350877193,
+    "confusion_matrix": {
+      "true_negative": 142,
+      "false_positive": 17,
+      "false_negative": 16,
+      "true_positive": 110
+    }
+  },
+  "feature_statistics": {
+    "Gender": {
+      "mean": 0.5184859154929577,
+      "std": 0.4998782193321543,
+      "min": 0.0,
+      "max": 1.0,
+      "p25": 0.0,
+      "p75": 1.0
+    },
+    "Hemoglobin": {
+      "mean": 13.419636181495694,
+      "std": 2.0280989342391718,
+      "min": 6.459035296058139,
+      "max": 18.119876203169635,
+      "p25": 11.759136331436899,
+      "p75": 15.020357482667574
+    },
+    "MCH": {
+      "mean": 22.972489760168823,
+      "std": 4.0083697318961,
+      "min": 14.897893071686433,
+      "max": 30.679310242097568,
+      "p25": 19.506732944950752,
+      "p75": 26.25128787741245
+    },
+    "MCHC": {
+      "mean": 30.240654833901107,
+      "std": 1.47131763808577,
+      "min": 26.553364589834963,
+      "max": 34.07602836725604,
+      "p25": 29.05678161559911,
+      "p75": 31.446439852587776
+    },
+    "MCV": {
+      "mean": 85.53314779219265,
+      "std": 9.678709926311674,
+      "min": 68.34287200509152,
+      "max": 102.75045024896714,
+      "p25": 76.9998307731945,
+      "p75": 94.18313615738089
+    }
+  },
+  "global_shap_importance": [
+    {
+      "feature": "Hemoglobin",
+      "mean_abs_shap": 0.3321,
+      "rank": 1
+    },
+    {
+      "feature": "Gender",
+      "mean_abs_shap": 0.1089,
+      "rank": 2
+    },
+    {
+      "feature": "MCV",
+      "mean_abs_shap": 0.036,
+      "rank": 3
+    },
+    {
+      "feature": "MCH",
+      "mean_abs_shap": 0.0271,
+      "rank": 4
+    },
+    {
+      "feature": "MCHC",
+      "mean_abs_shap": 0.0232,
+      "rank": 5
+    }
+  ],
+  "model_path": "models/anemia_model.pkl",
+  "train_sample_path": "models/anemia_train_sample.pkl"
+}
