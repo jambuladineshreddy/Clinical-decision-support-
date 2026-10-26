@@ -103,9 +103,12 @@ def format_shap_summary(feature_contributions: list[dict], n: int = 5) -> str:
     top = feature_contributions[:n]
     lines = []
     for c in top:
+        val = c.get("shap_value", 0.0)
+        direction = c.get("direction")
+        if not direction:
+            direction = "increases risk" if val > 0 else "decreases risk"
         lines.append(
-            f"  - {c['feature']}: SHAP value = {c['shap_value']:+.4f} "
-            f"({c['direction']})"
+            f"  - {c.get('feature', 'Unknown')}: SHAP value = {val:+.4f} ({direction})"
         )
     return "\n".join(lines)
 
@@ -117,11 +120,14 @@ def format_retrieved_evidence(evidence_list: list[dict]) -> str:
 
     parts = []
     for i, ev in enumerate(evidence_list, start=1):
+        content = ev.get("content") or ev.get("text", "")
+        source = ev.get("source_name") or ev.get("source", "Clinical Guidelines")
+        doc = ev.get("document_name") or ev.get("disease", "Reference Document")
         parts.append(
             f"[Evidence {i}]\n"
-            f"Source: {ev.get('source_name', 'Unknown')}\n"
-            f"Document: {ev.get('document_name', 'Unknown')}\n"
-            f"Passage:\n{ev.get('content', '').strip()}\n"
+            f"Source: {source}\n"
+            f"Document: {doc}\n"
+            f"Passage:\n{content.strip()}\n"
         )
     return "\n---\n".join(parts)
 

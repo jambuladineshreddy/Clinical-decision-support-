@@ -12,6 +12,10 @@ import logging
 from dataclasses import dataclass, field
 from pathlib import Path
 
+# Ensure cached HuggingFace models load directly without hanging on remote version checks
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MODELS_DIR = BASE_DIR / "models"

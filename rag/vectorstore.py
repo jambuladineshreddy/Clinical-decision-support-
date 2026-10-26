@@ -24,7 +24,7 @@ COLLECTION_NAMES = {
     disease: cfg.collection_name for disease, cfg in DISEASE_CONFIGS.items()
 }
 
-_cache_lock = threading.Lock()
+_cache_lock = threading.RLock()
 _vectorstore_cache: dict[str, Any] = {}
 _chroma_client_singleton: chromadb.PersistentClient | None = None
 _embedding_singleton = None
@@ -45,11 +45,18 @@ def get_embedding_function():
 
         from langchain_huggingface import HuggingFaceEmbeddings
         logger.info(f"Loading singleton HuggingFace embeddings: {EMBEDDING_MODEL}")
-        _embedding_singleton = HuggingFaceEmbeddings(
-            model_name=EMBEDDING_MODEL,
-            model_kwargs={"device": SYSTEM_CONFIG.embedding_device},
-            encode_kwargs={"normalize_embeddings": True},
-        )
+        try:
+            _embedding_singleton = HuggingFaceEmbeddings(
+                model_name=EMBEDDING_MODEL,
+                model_kwargs={"device": SYSTEM_CONFIG.embedding_device, "local_files_only": True},
+                encode_kwargs={"normalize_embeddings": True},
+            )
+        except Exception:
+            _embedding_singleton = HuggingFaceEmbeddings(
+                model_name=EMBEDDING_MODEL,
+                model_kwargs={"device": SYSTEM_CONFIG.embedding_device},
+                encode_kwargs={"normalize_embeddings": True},
+            )
         return _embedding_singleton
 
 
@@ -91,12 +98,13 @@ def get_langchain_vectorstore(disease: str):
             return _vectorstore_cache[disease]
 
         from langchain_chroma import Chroma
+        client = get_chroma_client()
         embeddings = get_embedding_function()
         cname = COLLECTION_NAMES.get(disease, f"{disease}_knowledge")
         vs = Chroma(
+            client=client,
             collection_name=cname,
             embedding_function=embeddings,
-            persist_directory=str(CHROMA_PATH),
         )
         _vectorstore_cache[disease] = vs
         return vs

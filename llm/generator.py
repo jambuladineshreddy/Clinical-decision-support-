@@ -64,9 +64,10 @@ def _build_llm():
             if not api_key:
                 raise EnvironmentError("GOOGLE_API_KEY not set.")
             _llm_singleton = ChatGoogleGenerativeAI(
-                model=os.getenv("GOOGLE_MODEL", "gemini-1.5-flash"),
+                model=os.getenv("GOOGLE_MODEL", "gemini-3.8-flash"),
                 temperature=0.1,
                 google_api_key=api_key,
+                transport="rest",  # Use plain HTTPS instead of gRPC (gRPC blocked on hotspots/firewalls)
             )
 
         elif provider == "groq":
